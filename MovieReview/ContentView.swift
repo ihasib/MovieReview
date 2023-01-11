@@ -9,8 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            List(1..<5) {_ in
+//                ForEach(1...5,)
+                NavigationLink(destination: Text("2nd screen")) {
+                    Text("Hello, world!")
+                }
+            }
+            .navigationTitle("Movies")
+            .navigationBarItems(trailing: Button("Add Movie") {
+                print("Hello")
+            })
+        }
     }
 }
 
