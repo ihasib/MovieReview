@@ -8,18 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isPresented = false
     var body: some View {
         NavigationView {
             List(1..<5) {_ in
 //                ForEach(1...5,)
-                NavigationLink(destination: Text("2nd screen")) {
-                    Text("Hello, world!")
+                NavigationLink(destination: MovieDetailView()/*Text("2nd screen")*/) {
+//                    Text("Hello, world!")
+                    MovieCell()
                 }
             }
             .navigationTitle("Movies")
             .navigationBarItems(trailing: Button("Add Movie") {
                 print("Hello")
+                isPresented.toggle()
             })
+        }
+        .sheet(isPresented: $isPresented, onDismiss: nil) {
+            AddMovieView()
         }
     }
 }
