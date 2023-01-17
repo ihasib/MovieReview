@@ -10,14 +10,14 @@ import SwiftUI
 struct MovieDetailView: View {
     var body: some View {
         VStack {
-            NavigationView {
+            //NavigationView {
                 List(1..<3) {index in
-                    NavigationLink(destination: Text(")")) {
-                        Text( (index == 1) ? "Reviews" : "Actors")
+                    NavigationLink(destination: (index == 1) ?  ReviewView() : ReviewView()) {
+                        Text( index == 1 ? "Reviews" : "Actors")
                     }
                 }
                 .navigationTitle("Movie Binded Name")
-            }
+            //}
             Spacer()
         }
     }
