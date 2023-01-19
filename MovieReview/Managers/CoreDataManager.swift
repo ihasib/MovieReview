@@ -20,4 +20,12 @@ struct CoreDataManager {
             }
         }
     }
+
+    func save() {
+        do {
+            try persistentContainer.viewContext.save()
+        } catch {
+            print("Movie saving failed due to \(error.localizedDescription)")
+        }
+    }
 }

@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct AddMovieView: View {
+    @State var addMovieVM = AddMovieViewModel()
     @State private var movieName = ""
     @State private var movieDirector = ""
     @State private var date = Date.now
     var body: some View {
         VStack {
-            TextField("Enter Name", text: $movieName)
-            TextField("Enter Director", text: $movieDirector)
+            TextField("Enter Name", text: $addMovieVM.title)
+            TextField("Enter Director", text: $addMovieVM.director)
             HStack {
                 Text("Rating")
                 Spacer()
